@@ -1,0 +1,132 @@
+/* */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    height: 100vh;
+    background: linear-gradient(135deg, red, #000000);
+    display: flex;
+    align-items: center;
+    color: #bbb;
+}
+
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+
+.login-box {
+
+    background-color: whitesmoke;
+    padding: 40px;
+    border-radius: 12px;
+    width: 350px;
+    box-shadow: 0 0 20px black;
+    text-align: center;
+}
+
+.log {
+    font-size: 1.8;
+    margin-bottom: 20px;
+    color: black
+}
+
+
+.tab {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 25px;
+}
+
+
+.tab-btn {
+    background: none;
+    border: none;
+    color: whitesmoke;
+    font-size: 1em;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.tab-btn.active {
+    background-color:black;
+    color: whitesmoke; 
+    border-radius: 6px;
+}
+
+
+
+label {
+    display: block;
+    text-align: left;
+    margin-top: 10px;
+    font-size: 0.9em;
+}
+
+
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 6px;
+    border: none;
+    outline: none;
+}
+
+
+.options {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    font-size: 0.85em;
+}
+
+
+.options a {
+    color: rgb(7, 7, 7);
+    text-decoration:none;
+}
+
+
+.btn{
+    background-color: #000000;
+    color: #fff;
+    border: none;
+    padding: 12px;
+    width: 100%;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 20px;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.btn:hover {
+    background-color: blue;
+}
+
+.logo {
+    font-family: "Montserrat", sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #e20808; /* azul semelhante ao da Nuuvem */
+    text-transform: uppercase;
+
+    /* efeito leve de brilho */
+    text-shadow: 0 0 8px rgba(77, 163, 255, 0.6);
+    margin-bottom: 25px;
+}
+
+

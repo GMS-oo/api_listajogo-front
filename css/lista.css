@@ -1,0 +1,93 @@
+/* Cor de fundo escura, como na imagem */
+
+
+body {
+    background-color:rgb(253, 0, 0);
+    color: rgb(248, 246, 246);
+    font-family: Arial, sans-serif;
+    padding: 50px;
+}
+
+/* Container que define o layout em grid (grade) */
+
+.game-grid-container {
+    display: grid;
+
+    /* 4 colunas com tamanho flexível para o visual de 4 jogos por linha */
+
+    grid-template-columns: repeat(4,1fr);
+    gap: 20px; /* Espaço entre os cards */
+    max-width: 1200px; /* Largura máxima para centralizar */
+    margin: 0 auto;
+}
+
+
+/* Estilo do card individual */
+
+
+.game-card {
+
+    background-color: rgb(180, 29, 29);
+    border-radius: 8px;
+    overflow: hidden; /* Garante que a imagem se ajuste */
+    position: relative; /* Para posicionar o badge da loja */
+    transition: transform 0.2s;
+    cursor: pointer;
+}
+
+
+.game-card:hover {
+    transform: translateY(-5px); /* Efeito de 'levantar' ao passar o mouse */
+    box-shadow: 0 5px 15px rgb(155, 5, 5);
+}
+
+/* Badge 'PC' no canto superior */
+
+.store-badge {
+position: absolute;
+top: 10px;
+right: 10px;
+background-color: rgba(255. 255, 255, 0.2);
+padding: 4px 8px;
+border-radius: 4px;
+font-size: 0.8em;
+font-weight: bold;
+z-index: 10;
+}
+
+/* Imagem da capa */
+
+
+.geme-image-container {
+    height: 180px; /* Altura fixa para a imagem */
+    overflow: hidden;
+
+}
+
+.game-cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Garante que a imagem preencha o container sem distorcer */
+    display: block;
+}
+
+/* Informações do jogo abaixo da capa */
+
+.game-info {
+    padding: 10 px 15px;
+}
+
+.game-title {
+    font-size: 1.1em;
+    font-weight: bold;
+    margin: 0 0 5px 0;
+}
+
+.game-os {
+    font-size: 0.9;
+    color: rgb(0, 0, 0);
+    margin-bottom: 10PX;
+}
+
+
+
