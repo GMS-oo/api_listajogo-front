@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes do Jogo - Game Vault</title>
+    
+    <link rel="stylesheet" href="css/lista.css"> 
+
+    
+<style>
+        /* --- TEMA INVERTIDO: Fundo Vermelho / Container Preto --- */
+        body {
+            background-color: #b30000; /* Fundo Vermelho */
+            color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding-bottom: 50px;
+        }
+
+        .detalhes-container {
+            max-width: 1200px; /* Mais largo para caber a capa maior */
+            margin: 40px auto;
+            display: flex;
+            gap: 60px;
+            background: #000000; /* Card Preto */
+            padding: 50px;
+            border-radius: 16px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.9);
+            align-items: flex-start;
+            border: 2px solid #000;
+        }
+
+        .capa-grande {
+            /* --- AUMENTEI AQUI: De 350px para 500px --- */
+            width: 500px; 
+            border-radius: 12px;
+            box-shadow: 0 0 30px rgba(0,0,0, 0.8);
+            object-fit: cover;
+            border: 1px solid #333;
+        }
+
+        .infos { flex: 1; display: flex; flex-direction: column; }
+
+        .infos h1 {
+            font-size: 4rem; /* Fonte maior */
+            margin: 0 0 15px 0;
+            color: #ffffff; /* Título Branco */
+            line-height: 1.1;
+            text-transform: uppercase;
+            text-shadow: 4px 4px 0px #b30000; /* Sombra vermelha no texto */
+        }
+
+        .infos .meta {
+            display: flex;
+            gap: 15px;
+            font-size: 1.2rem;
+            color: #ccc;
+            margin-bottom: 25px;
+            border-bottom: 2px solid #b30000; /* Linha vermelha */
+            padding-bottom: 15px;
+        }
+
+        .infos .desc {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #eee;
+            margin-bottom: 30px;
+            text-align: justify;
+        }
+
+        .infos .preco-box {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #111;
+            padding: 25px;
+            border-radius: 10px;
+            border: 1px solid #333;
+        }
+
+        .preco-valor {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #ff0033; /* Preço em Vermelho */
+        }
+
+        .btn-comprar {
+            background-color: white; /* Botão Branco */
+            color: black;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-comprar:hover {
+            background-color: #ddd;
+            transform: scale(1.05);
+        }
+
+        /* --- COMENTÁRIOS --- */
+        .comentarios-section {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .comentarios-section h2 {
+            border-left: 10px solid #000; /* Barra Preta */
+            padding-left: 15px;
+            margin-bottom: 30px;
+            font-size: 2.5rem;
+            color: #000; /* Título Preto no fundo vermelho */
+            background: rgba(255,255,255, 0.8); /* Fundo branco semi-transparente para ler */
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .input-box {
+            background: #000; /* Preto */
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+        }
+
+        textarea {
+            width: 100%;
+            height: 120px;
+            background: #222;
+            border: 1px solid #444;
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            resize: vertical;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+
+        .btn-comentar {
+            background: #fff;
+            color: black;
+            border: none;
+            padding: 12px 30px;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        .btn-comentar:hover {
+            background: #ccc;
+        }
+
+        .comentario-item {
+            background: #000; /* Card Preto */
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #333;
+            color: white;
+        }
+
+        .autor {
+            color: #ff0033; /* Autor em Vermelho */
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        @media (max-width: 900px) {
+            .detalhes-container {
+                flex-direction: column;
+                align-items: center;
+                padding: 20px;
+            }
+            .capa-grande { width: 100%; max-width: 500px; }
+        }
+    </style>
+
+    <script src="js/config.js" defer></script>
+    <script src="js/detalhes.js" defer></script>
+</head>
+
+<body>
+    <header class="main-header" style="padding: 20px; background: #000; display: flex; justify-content: space-between; align-items: center; padding: 20px 5%;">
+        <h1 style="margin:0; color:#000000; letter-spacing: 2px;">GAME VAULT</h1>
+        <a href="biblioteca.html" style="color: white; text-decoration: none; font-weight: bold; border: 1px solid #333; padding: 8px 15px; border-radius: 5px;">&larr; Voltar para Biblioteca</a>
+    </header>
+
+    <div id="detalhes-loader" style="text-align: center; margin-top: 50px;">Carregando informações...</div>
+    
+    <div id="detalhes-conteudo" class="detalhes-container" style="display: none;">
+        </div>
+
+    <div class="comentarios-section">
+        <h2>Comentários da Comunidade</h2>
+        
+        <div class="input-box">
+            <textarea id="txtComentario" placeholder="O que você achou deste jogo? Deixe sua opinião..."></textarea>
+            <button onclick="enviarComentario()" class="btn-comentar">Publicar Comentário</button>
+        </div>
+
+        <div id="lista-comentarios">
+            <p style="color: #666;">Carregando comentários...</p>
+        </div>
+    </div>
+</body>
+</html>

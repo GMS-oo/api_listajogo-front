@@ -1,93 +1,77 @@
-/* Cor de fundo escura, como na imagem */
-
-
 body {
-    background-color:rgb(253, 0, 0);
-    color: rgb(248, 246, 246);
-    font-family: Arial, sans-serif;
-    padding: 50px;
+    background-color: #b30000; /* FUNDO VERMELHO ESCURO */
+    font-family: 'Segoe UI', sans-serif;
+    color: white;
+    margin: 0;
 }
 
-/* Container que define o layout em grid (grade) */
+/* Header */
+.main-header {
+    background-color: #000000; /* Header Preto */
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 4px solid #000; 
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+}
 
+.site-title {
+    color: #ffffff;
+    margin: 0;
+    font-size: 1.8rem;
+    letter-spacing: 2px;
+}
+
+.profile-link {
+    color: #000;
+    background: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.profile-link:hover {
+    background-color: #000;
+    color: white;
+}
+
+/* Grid */
 .game-grid-container {
     display: grid;
-
-    /* 4 colunas com tamanho flexível para o visual de 4 jogos por linha */
-
-    grid-template-columns: repeat(4,1fr);
-    gap: 20px; /* Espaço entre os cards */
-    max-width: 1200px; /* Largura máxima para centralizar */
+    /* --- AUMENTEI AQUI: De 200px para 300px --- */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 40px;
+    max-width: 1400px; /* Aumentei a largura total */
     margin: 0 auto;
 }
 
-
-/* Estilo do card individual */
-
-
-.game-card {
-
-    background-color: rgb(180, 29, 29);
-    border-radius: 8px;
-    overflow: hidden; /* Garante que a imagem se ajuste */
-    position: relative; /* Para posicionar o badge da loja */
-    transition: transform 0.2s;
-    cursor: pointer;
-}
-
-
-.game-card:hover {
-    transform: translateY(-5px); /* Efeito de 'levantar' ao passar o mouse */
-    box-shadow: 0 5px 15px rgb(155, 5, 5);
-}
-
-/* Badge 'PC' no canto superior */
-
-.store-badge {
-position: absolute;
-top: 10px;
-right: 10px;
-background-color: rgba(255. 255, 255, 0.2);
-padding: 4px 8px;
-border-radius: 4px;
-font-size: 0.8em;
-font-weight: bold;
-z-index: 10;
-}
-
-/* Imagem da capa */
-
-
-.geme-image-container {
-    height: 180px; /* Altura fixa para a imagem */
+/* Card Simplificado */
+.game-card-simple {
+    border-radius: 12px;
     overflow: hidden;
-
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    aspect-ratio: 2/3;
+    border: 4px solid #000; /* Borda Preta Grossa */
+    background: #000;
 }
 
-.game-cover {
+/* Hover */
+.game-card-simple:hover {
+    transform: scale(1.03);
+    border-color: #fff; /* Borda fica branca ao passar mouse */
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.9);
+    z-index: 10;
+}
+
+.game-cover-simple {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Garante que a imagem preencha o container sem distorcer */
+    object-fit: cover;
     display: block;
 }
-
-/* Informações do jogo abaixo da capa */
-
-.game-info {
-    padding: 10 px 15px;
-}
-
-.game-title {
-    font-size: 1.1em;
-    font-weight: bold;
-    margin: 0 0 5px 0;
-}
-
-.game-os {
-    font-size: 0.9;
-    color: rgb(0, 0, 0);
-    margin-bottom: 10PX;
-}
-
-
-
