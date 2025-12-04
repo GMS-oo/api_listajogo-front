@@ -1,10 +1,7 @@
-// js/detalhes.js
-
-// 1. Captura o ID da URL (ex: detalhes.html?id=5)
 const urlParams = new URLSearchParams(window.location.search);
 const jogoId = urlParams.get('id');
 
-// Executa assim que a página carrega
+
 document.addEventListener('DOMContentLoaded', () => {
     if (!jogoId) {
         alert('Jogo não especificado!');
@@ -12,12 +9,12 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
     }
 
-    // Carrega as duas partes principais
+  
     carregarDetalhesDoJogo();
     carregarComentarios();
 });
 
-// --- FUNÇÃO 1: Carregar Infos do Jogo ---
+
 async function carregarDetalhesDoJogo() {
     try {
         const response = await fetch(`${API_URL}/Jogos/${jogoId}`);
@@ -33,12 +30,11 @@ async function carregarDetalhesDoJogo() {
         const baseApiUrl = API_URL.replace('/api', '');
         const capaCompleta = baseApiUrl + jogo.capaUrl;
 
-        // Formata preço
+      
         const precoFormatado = jogo.valor === 0 
             ? 'Grátis' 
             : jogo.valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 
-        // Monta o HTML
         const html = `
             <div>
                 <img src="${capaCompleta}" class="capa-grande" alt="${jogo.nome}" onerror="this.src='imagens/sem-capa.jpg'">
@@ -64,10 +60,10 @@ async function carregarDetalhesDoJogo() {
             </div>
         `;
 
-        // Exibe o conteúdo e esconde o loader
+      
         const container = document.getElementById('detalhes-conteudo');
         container.innerHTML = html;
-        container.style.display = 'flex'; // Torna visível (flex para manter o layout)
+        container.style.display = 'flex'; 
         document.getElementById('detalhes-loader').style.display = 'none';
 
     } catch (error) {
@@ -76,7 +72,7 @@ async function carregarDetalhesDoJogo() {
     }
 }
 
-// --- FUNÇÃO 2: Carregar Comentários ---
+
 async function carregarComentarios() {
     try {
         const response = await fetch(`${API_URL}/Comentarios/jogo/${jogoId}`);
@@ -85,7 +81,7 @@ async function carregarComentarios() {
         if (response.ok) {
             const comentarios = await response.json();
 
-            listaDiv.innerHTML = ''; // Limpa "Carregando..."
+            listaDiv.innerHTML = ''; 
 
             if (comentarios.length === 0) {
                 listaDiv.innerHTML = '<p style="color: #888;">Nenhum comentário ainda. Seja o primeiro!</p>';
@@ -97,7 +93,7 @@ async function carregarComentarios() {
                 const dataObj = new Date(c.dataComentario);
                 const dataFormatada = dataObj.toLocaleDateString('pt-BR') + ' às ' + dataObj.toLocaleTimeString('pt-BR', {hour: '2-digit', minute:'2-digit'});
 
-                // Nome do usuário (trata caso venha nulo)
+           
                 const nomeUsuario = c.usuario ? c.usuario.nome : 'Usuário Desconhecido';
 
                 listaDiv.innerHTML += `
@@ -121,7 +117,6 @@ async function enviarComentario() {
     const txtInput = document.getElementById('txtComentario');
     const texto = txtInput.value.trim();
     
-    // Verifica se o usuário está logado
     const usuarioLogado = localStorage.getItem('usuarioLogado');
     if (!usuarioLogado) {
         alert('Você precisa estar logado para comentar!');
@@ -140,7 +135,7 @@ async function enviarComentario() {
     const novoComentario = {
         Texto: texto,
         UsuarioId: usuario.id,
-        JogoId: parseInt(jogoId) // Garante que o ID é número
+        JogoId: parseInt(jogoId) 
     };
 
     try {
@@ -153,7 +148,7 @@ async function enviarComentario() {
         });
 
         if (response.ok) {
-            // Limpa o campo e recarrega a lista
+        
             txtInput.value = '';
             carregarComentarios(); 
         } else {

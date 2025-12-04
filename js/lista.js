@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             gridContainer.innerHTML = ''; 
             
             jogos.forEach(jogo => {
-                // Cria o link para a página de detalhes
+
                 const linkDetalhes = `detalhes.html?id=${jogo.id}`;
                 
                 // Monta URL da Imagem
@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
                 // CRIA O CARD SOMENTE COM A IMAGEM
                 const gameCard = document.createElement('div');
-                gameCard.className = 'game-card-simple'; // Classe nova para CSS simplificado
+                gameCard.className = 'game-card-simple'; 
 
                 gameCard.innerHTML = `
                     <a href="${linkDetalhes}" title="${jogo.nome}">

@@ -1,6 +1,4 @@
-// js/login.js
 
-// Certifique-se de que o config.js está carregado antes deste
 document.addEventListener('DOMContentLoaded', () => {
     const formLogin = document.getElementById('formLogin');
 
@@ -11,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const email = document.getElementById('email').value;
             const senha = document.getElementById('senha').value;
             
-            // DTO de Login (o que a API espera)
+           
             const loginData = {
                 email: email,
                 senha: senha
@@ -27,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
 
                 if (response.ok) {
-                    // Login bem-sucedido
+                   
                     const usuario = await response.json();
                     
                     // Armazena dados do usuário (ID, Nome) no navegador
