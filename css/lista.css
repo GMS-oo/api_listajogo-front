@@ -1,13 +1,13 @@
 body {
-    background-color: #b30000; /* FUNDO VERMELHO ESCURO */
+    background-color: #b30000;
     font-family: 'Segoe UI', sans-serif;
     color: white;
     margin: 0;
 }
 
-/* Header */
+
 .main-header {
-    background-color: #000000; /* Header Preto */
+    background-color: #000000;
     padding: 20px 40px;
     display: flex;
     justify-content: space-between;
@@ -38,40 +38,59 @@ body {
     color: white;
 }
 
-/* Grid */
+
 .game-grid-container {
     display: grid;
-    /* --- AUMENTEI AQUI: De 200px para 300px --- */
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 30px;
+
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 20px;
     padding: 40px;
-    max-width: 1400px; /* Aumentei a largura total */
+    max-width: 1600px;
     margin: 0 auto;
 }
 
-/* Card Simplificado */
+/* CARD DEITADO (PAISAGEM) */
 .game-card-simple {
+    width: 100%;
+    
+    /*Volta a ser deitada (Widescreen) */
+    aspect-ratio: 16/9;      
+    
     border-radius: 12px;
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
     position: relative;
-    aspect-ratio: 2/3;
-    border: 4px solid #000; /* Borda Preta Grossa */
+    border: 4px solid #000;
     background: #000;
 }
 
-/* Hover */
+
 .game-card-simple:hover {
-    transform: scale(1.03);
-    border-color: #fff; /* Borda fica branca ao passar mouse */
+    transform: scale(1.05);
+    border-color: #fff;
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.9);
     z-index: 10;
 }
 
+
 .game-cover-simple {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: cover;    
+    object-position: top; 
     display: block;
+}
+
+
+@media (max-width: 1000px) {
+    .game-grid-container {
+        grid-template-columns: repeat(2, 1fr); 
+    }
+}
+
+@media (max-width: 600px) {
+    .game-grid-container {
+        grid-template-columns: 1fr; 
+    }
 }
