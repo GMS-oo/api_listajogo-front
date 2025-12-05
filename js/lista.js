@@ -1,18 +1,18 @@
 document.addEventListener('DOMContentLoaded', async () => {
     
-    // 1. VERIFICAÇÃO DE LOGIN
+    
     const usuarioLogado = localStorage.getItem('usuarioLogado');
     if (!usuarioLogado) {
         window.location.href = 'login.html';
         return;
     }
     
-    // Atualiza nome do usuário no header
+   
     const usuario = JSON.parse(usuarioLogado);
     const profileLink = document.querySelector('.profile-link');
     if(profileLink) profileLink.textContent = `Olá, ${usuario.nome}`;
 
-    // 2. BUSCA DE JOGOS
+ 
     const gridContainer = document.querySelector('.game-grid-container');
     if (!gridContainer) return;
 

@@ -28,10 +28,10 @@ document.addEventListener('DOMContentLoaded', () => {
                    
                     const usuario = await response.json();
                     
-                    // Armazena dados do usuário (ID, Nome) no navegador
+                 
                     localStorage.setItem('usuarioLogado', JSON.stringify(usuario));
 
-                    // Redireciona para a página da biblioteca
+                  
                     window.location.href = 'biblioteca.html'; 
                 } else if (response.status === 401) {
                     alert('Email ou senha inválidos. Tente novamente.');
